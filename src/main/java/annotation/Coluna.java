@@ -10,10 +10,9 @@ import java.lang.annotation.Target;
 public @interface Coluna {
 
 	String nome() default "";
-	
+
 	boolean notNull() default false;
-	
-	String tipo() default  "";
-	
-	
+
+	String tipo() default "";
+
 }

@@ -21,13 +21,7 @@ public class DaoComponent<Tipo> implements ObjectDao<Tipo> {
 	public Statement statement;
 
 	public DaoComponent(Connection conexao) {
-		this.conexao = conexao;
-		try {
-			this.statement = conexao.createStatement();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		this.obterConexao();
 	}
 
 	public List<Tipo> findAll() {
@@ -151,6 +145,18 @@ public class DaoComponent<Tipo> implements ObjectDao<Tipo> {
 
 	public void createTable(String query) throws SQLException {
 		statement.execute(query);
+	}
+	
+	private void obterConexao() {
+		this.conexao = Banco.getConnection();
+	}
+	
+	private void fecharConexao() {
+		Banco.closeConnection();
+	}
+	
+	private void fecharStatement(Statement statement) {
+		Banco.closeStatement(statement);
 	}
 
 }
