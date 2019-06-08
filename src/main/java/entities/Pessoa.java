@@ -16,8 +16,7 @@ public class Pessoa {
 	
 	@Coluna(nome = "sexo", tipo = "varchar(1)")
 	private String sexo;
-	
-	@Coluna(nome="idade", tipo = "integer", notNull = true)
+		
 	private String idadePessoa;
 
 	public Pessoa(String codigoPessoa, String nomePessoa, String sexo, String idadePessoa) {
