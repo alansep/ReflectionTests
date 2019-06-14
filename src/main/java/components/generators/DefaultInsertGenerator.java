@@ -7,6 +7,8 @@ import interfaces.crudgenerators.InsertQueryGenerator;
 public class DefaultInsertGenerator<Tipo> implements InsertQueryGenerator<Tipo> {
 
 	public String gerarInsert(String nomeTabela, Map<String, String> dados) {
+		
+		
 		int contador = 1;
 		StringBuilder query = new StringBuilder();
 		query.append("insert into " + nomeTabela + "(");
@@ -33,4 +35,14 @@ public class DefaultInsertGenerator<Tipo> implements InsertQueryGenerator<Tipo> 
 		return query.toString();
 	}
 
+	public String gerarInsertAutoIncrement(String nomeTabela, Map<String, String> dados) {
+		for (String chave : dados.keySet()) {
+			if(dados.get(chave).equals("null")) {
+				dados.remove(chave);
+				break;
+			}
+		}
+		System.out.println(this.gerarInsert(nomeTabela, dados));
+		return this.gerarInsert(nomeTabela, dados);
+	}
 }

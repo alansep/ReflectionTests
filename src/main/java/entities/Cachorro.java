@@ -8,17 +8,22 @@ import annotation.Tabela;
 public class Cachorro {
 
 	@Id(autoIncrement = true, primaryKey = true)
-	@Coluna(nome = "codigo",  tipo = "integer")
+	@Coluna(nome = "codigo", tipo = "integer")
 	private String codigoCao;
 
-	@Coluna(nome = "nome", tipo = "varchar(30)")
+	@Coluna(nome = "nome")
 	private String nomeCao;
 
-	@Coluna(nome = "vivo", tipo = "boolean")
+	@Coluna(tipo = "boolean")
 	private String vivoCao;
 
 	public Cachorro(String codigoCao, String nomeCao, String vivoCao) {
 		this.codigoCao = codigoCao;
+		this.nomeCao = nomeCao;
+		this.vivoCao = vivoCao;
+	}
+
+	public Cachorro(String nomeCao, String vivoCao) {
 		this.nomeCao = nomeCao;
 		this.vivoCao = vivoCao;
 	}

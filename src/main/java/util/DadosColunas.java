@@ -29,6 +29,7 @@ public class DadosColunas {
 		String retorno = null;
 		Map<Class<?>,String> tipos = DadosColunas.getTipos();
 		for (Class<?> classeIterada : tipos.keySet()) {
+			
 			if(classeIterada.getSimpleName().toUpperCase().equals(classe.getSimpleName().toUpperCase())) {
 				retorno = tipos.get(classeIterada);
 			}
