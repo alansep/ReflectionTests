@@ -2,7 +2,7 @@ package services;
 
 import java.sql.Connection;
 
-import interfaces.DaoComponent;
+import components.DaoComponent;
 
 public class DaoComponentService<Tipo> extends DaoComponent<Tipo> {
 

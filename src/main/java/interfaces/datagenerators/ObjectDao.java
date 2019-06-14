@@ -1,4 +1,4 @@
-package interfaces;
+package interfaces.datagenerators;
 
 import java.util.Map;
 

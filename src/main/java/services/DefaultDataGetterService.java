@@ -7,7 +7,7 @@ import java.util.Map;
 import annotation.Coluna;
 import annotation.Id;
 import annotation.Tabela;
-import interfaces.DataGetterInterface;
+import interfaces.datagenerators.DataGetterInterface;
 import util.DadosColunas;
 
 public class DefaultDataGetterService<Tipo> implements DataGetterInterface<Tipo> {

@@ -2,7 +2,6 @@ package application;
 
 import database.Banco;
 import entities.Aula;
-import entities.Pessoa;
 import services.DaoComponentService;
 
 public class Program {

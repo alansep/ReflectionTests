@@ -1,4 +1,4 @@
-package interfaces;
+package components;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -7,6 +7,8 @@ import java.util.Map;
 
 import components.generators.DefaultInsertGenerator;
 import interfaces.crudgenerators.InsertQueryGenerator;
+import interfaces.datagenerators.DataGetterInterface;
+import interfaces.datagenerators.ObjectDao;
 import services.DefaultDataGetterService;
 import util.Auxiliar;
 
