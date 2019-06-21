@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Tabela {
 
-	String nome();
+	String nome() default "";
 
 	boolean criarSeNaoExistir() default false;
 

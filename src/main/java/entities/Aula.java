@@ -8,7 +8,7 @@ import annotation.Tabela;
 public class Aula {
 
 	@Id(autoIncrement = true, primaryKey = true)
-	@Coluna(nome = "codigo_aula", tipo = "integer")
+	@Coluna(tipo = "integer")
 	private String codigo;
 
 	@Coluna(nome = "disciplina_aula")

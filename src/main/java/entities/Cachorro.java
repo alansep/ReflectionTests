@@ -4,7 +4,7 @@ import annotation.Coluna;
 import annotation.Id;
 import annotation.Tabela;
 
-@Tabela(nome = "cachorro", criarSeNaoExistir = true)
+@Tabela(criarSeNaoExistir = true)
 public class Cachorro {
 
 	@Id(autoIncrement = true, primaryKey = true)

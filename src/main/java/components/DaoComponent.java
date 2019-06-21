@@ -10,12 +10,10 @@ import java.util.Map;
 import components.generators.DefaultInsertGenerator;
 import interfaces.datagenerators.DataGetterInterface;
 import interfaces.datagenerators.ObjectDao;
-import services.DefaultDataGetterService;
 import util.Auxiliar;
 
-public abstract class DaoComponent<Tipo> implements ObjectDao<Tipo> {
+public class DaoComponent<Tipo> implements ObjectDao<Tipo>, DataGetterInterface {
 
-	private DataGetterInterface<Tipo> dataGetter = new DefaultDataGetterService<Tipo>();
 	private DefaultInsertGenerator<Tipo> insertGenerator = new DefaultInsertGenerator<Tipo>();
 	private Connection conexao;
 	private Statement statement;
@@ -30,10 +28,10 @@ public abstract class DaoComponent<Tipo> implements ObjectDao<Tipo> {
 			System.out.println(Auxiliar.possuiAI(objeto));
 			if (Auxiliar.possuiAI(objeto)) {
 				statement.execute(insertGenerator.gerarInsertAutoIncrement(
-						dataGetter.obterNomeTabela(objeto).toUpperCase(), dataGetter.obterDadosDeObjeto(objeto)));
+						this.obterNomeTabela(objeto).toUpperCase(), this.obterDadosDeObjeto(objeto)));
 			} else {
-				statement.execute(insertGenerator.gerarInsert(dataGetter.obterNomeTabela(objeto).toUpperCase(),
-						dataGetter.obterDadosDeObjeto(objeto)));
+				statement.execute(insertGenerator.gerarInsert(this.obterNomeTabela(objeto).toUpperCase(),
+						this.obterDadosDeObjeto(objeto)));
 			}
 			System.out.println("A Informação foi inserida com sucesso!");
 		} catch (Exception e) {
@@ -53,7 +51,7 @@ public abstract class DaoComponent<Tipo> implements ObjectDao<Tipo> {
 					for (String palavra : e.getMessage().split(" ")) {
 						System.err.println(palavra);
 					}
-					Map<String, String> dados = new DefaultDataGetterService<Tipo>().obterDadosDeTabela(objeto);
+					Map<String, String> dados = this.obterDadosDeTabela(objeto);
 					try {
 						System.err.println("Criando Tabela!\n");
 						System.out.println(this.gerarCreateTable(objeto, dados));
