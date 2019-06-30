@@ -14,6 +14,7 @@ public class ObterDadosDeObjetoTest {
 
 	@Test
 	public void testarObterDadosDeObjeto() {
+
 		DataGetter data = new DataGetter();
 		Map<String, String> dados = data.obterDadosDeObjeto(new Aula("1", "Compiladores"));
 		Map<String, String> esperado = new HashMap<String, String>();
